@@ -3,6 +3,8 @@ package bytedance;
 import java.util.Arrays;
 
 /**
+ * **容易**
+ * <p>
  * 最小栈 https://leetcode-cn.com/explore/interview/card/bytedance/245/data-structure/1049/
  *
  * @author CaoJing
@@ -20,7 +22,11 @@ public class Solution33 {
     public Solution33() {
     }
 
+    /**
+     * 将元素 x 推入栈中
+     */
     public void push(int x) {
+        // 数组超过一半扩容
         if (index > (arr.length >> 1)) {
             arr = Arrays.copyOf(arr, arr.length << 1);
         }
@@ -30,6 +36,9 @@ public class Solution33 {
         }
     }
 
+    /**
+     * 删除栈顶的元素
+     */
     public void pop() {
         --index;
         if (arr[index] == min) {
@@ -42,6 +51,9 @@ public class Solution33 {
         }
     }
 
+    /**
+     * 获取栈顶元素
+     */
     public int top() {
         if (index > 0) {
             return arr[index - 1];
@@ -50,8 +62,26 @@ public class Solution33 {
         }
     }
 
+    /**
+     * 检索栈中的最小元素
+     */
     public int getMin() {
         return min;
+    }
+
+    public static void main(String[] args) {
+        Solution33 minStack = new Solution33();
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+
+        System.out.println(minStack.getMin());
+
+        minStack.pop();
+
+        System.out.println(minStack.top());
+
+        System.out.println(minStack.getMin());
     }
 
     /**

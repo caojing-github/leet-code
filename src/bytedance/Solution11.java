@@ -1,6 +1,7 @@
 package bytedance;
 
 /**
+ * **容易**
  * 最长连续递增序列 https://leetcode-cn.com/explore/interview/card/bytedance/243/array-and-sorting/1035/
  *
  * @author CaoJing
@@ -11,9 +12,10 @@ public class Solution11 {
     /**
      * 用时最快 https://leetcode-cn.com/submissions/detail/36247304/
      */
-    public int findLengthOfLCIS(int[] nums) {
-        if (nums.length == 0)
+    public static int findLengthOfLCIS(int[] nums) {
+        if (nums.length == 0) {
             return 0;
+        }
         int max = 0;
         int count = 1;
         for (int i = 0; i < nums.length - 1; i++) {
@@ -26,5 +28,10 @@ public class Solution11 {
         }
         max = Math.max(count, max);
         return max;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{1, 3, 5, 4, 7};
+        System.out.println(findLengthOfLCIS(nums));
     }
 }

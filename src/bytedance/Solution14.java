@@ -1,7 +1,7 @@
 package bytedance;
 
 /**
- * 第k个排列 https://leetcode-cn.com/explore/interview/card/bytedance/243/array-and-sorting/1021/
+ * 第k个排列 https://leetcode-cn.com/explore/interview/card/bytedance/243/array-and-sorting/1021/ TODO
  *
  * @author CaoJing
  * @date 2019/11/12 00:25

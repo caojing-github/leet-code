@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 复原IP地址 https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1044/
+ * 复原IP地址 https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1044/     TODO
  *
  * @author CaoJing
  * @date 2019/11/11 22:55
@@ -18,10 +18,9 @@ public class Solution7 {
     /**
      * 用时最快 https://leetcode-cn.com/submissions/detail/36240326/
      */
-    public List<String> restoreIpAddresses(String _s) {
+    public List<String> restoreIpAddresses(String original) {
         ans = new ArrayList<>();
-        // return new ArrayList<>();
-        s = _s;
+        s = original;
         path = new int[5];
         path[4] = s.length();
         dfs(0, 0);
@@ -63,10 +62,6 @@ public class Solution7 {
 
     public static void main(String[] args) {
         Solution7 r = new Solution7();
-        /*String rss="25525511135";
-        for (int i = 0; i <=rss.length() ; i++) {
-            System.out.println(rss.substring(0,i));
-        }*/
-        System.out.println(r.restoreIpAddresses("010010"));
+        System.out.println(r.restoreIpAddresses("25525511135"));
     }
 }

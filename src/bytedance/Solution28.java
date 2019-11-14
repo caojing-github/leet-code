@@ -1,6 +1,8 @@
 package bytedance;
 
 /**
+ * **容易**
+ * <p>
  * 买卖股票的最佳时机 II https://leetcode-cn.com/explore/interview/card/bytedance/246/dynamic-programming-or-greedy/1043/
  *
  * @author CaoJing
@@ -15,20 +17,18 @@ public class Solution28 {
      * 1. 对于一段曲线，最大值为顶点-谷点。
      * 2. 对数组进行遍历，求取一段点的最小值，再求取一段点的最大值。将两者相减得到一段点的最大差值。
      * 3. 将多段点的最大差值相加，得到最的和
-     *
-     * @param prices
-     * @return
      */
-    public int maxProfit(int[] prices) {
+    public static int maxProfit(int[] prices) {
         if (prices.length < 2) {
             return 0;
         }
         int maxProfit = 0;
-        int peak = 0;
-        int valley = 0;
+        // 峰点
+        int peak;
+        // 谷点
+        int valley;
         int i = 0;
         while (i < prices.length - 1) {
-            // 求得谷点
             while (i < prices.length - 1 && prices[i] >= prices[i + 1]) {
                 i++;
             }
@@ -43,4 +43,9 @@ public class Solution28 {
         return maxProfit;
     }
 
+    public static void main(String[] args) {
+        System.out.println(maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
+        System.out.println(maxProfit(new int[]{1, 2, 3, 4, 5}));
+        System.out.println(maxProfit(new int[]{7, 6, 4, 3, 1}));
+    }
 }

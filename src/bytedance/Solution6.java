@@ -1,7 +1,7 @@
 package bytedance;
 
 /**
- * 简化路径 https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1013/
+ * 简化路径 https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1013/   TODO
  *
  * @author CaoJing
  * @date 2019/11/11 22:50
