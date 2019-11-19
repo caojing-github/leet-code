@@ -5,4 +5,5 @@ bytedance目录为字节跳动板块的算法题
 [ASCII 、UTF-8、Unicode都是个啥啊，为啥会乱码啊？](https://www.cnblogs.com/angelye/p/8249711.html)  
 [UTF-8编码规则](https://www.cnblogs.com/xinruzhishui/p/5763894.html)  
 [PriorityQueue详解](https://www.jianshu.com/p/f1fd9b82cb72)  
+[PriorityQueue源码解析](https://www.jianshu.com/p/df781ec91740)  
 

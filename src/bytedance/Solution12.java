@@ -3,7 +3,7 @@ package bytedance;
 import java.util.PriorityQueue;
 
 /**
- * 数组中的第K个最大元素  https://leetcode-cn.com/explore/interview/card/bytedance/243/array-and-sorting/1018/    TODO
+ * 数组中的第K个最大元素  https://leetcode-cn.com/explore/interview/card/bytedance/243/array-and-sorting/1018/
  *
  * @author CaoJing
  * @date 2019/11/12 00:19
@@ -73,6 +73,10 @@ public class Solution12 {
         // output
         return heap.poll();
     }
+
+    /**
+     * TODO 之后看 方法一：快速选择 官方题解：https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/shu-zu-zhong-de-di-kge-zui-da-yuan-su-by-leetcode/
+     */
 
     public static void main(String[] args) {
         System.out.println(findKthLargest(new int[]{3, 2, 1, 5, 6, 4}, 2));

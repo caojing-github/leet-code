@@ -49,4 +49,8 @@ public class Solution14 {
         }
         ret[to] = c;
     }
+
+    /**
+     * 题解：https://leetcode-cn.com/problems/permutation-sequence/solution/javaliang-chong-jie-fa-ju-ti-si-lu-qing-kan-zhu-sh/
+     */
 }
