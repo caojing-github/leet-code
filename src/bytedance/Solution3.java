@@ -1,10 +1,8 @@
 package bytedance;
 
 
-import java.util.Arrays;
-
 /**
- * 字符串的排列   https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1016/   TODO
+ * 字符串的排列   https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1016/
  *
  * @author CaoJing
  * @date 2019/11/10 19:41
@@ -12,29 +10,38 @@ import java.util.Arrays;
 public class Solution3 {
 
     /**
-     * 用时最快的代码 https://leetcode-cn.com/submissions/detail/36112689/
+     * 方法五 滑动窗口法 https://leetcode-cn.com/problems/permutation-in-string/solution/zi-fu-chuan-de-pai-lie-by-leetcode/
      */
     public static boolean checkInclusion(String s1, String s2) {
-        char[] c1 = s1.toCharArray();
-        char[] c2 = s2.toCharArray();
-        int[] used = new int['z' + 1];
-        Arrays.fill(used, 0);
-        for (int i = 0; i < c1.length; i++) {
-            used[c1[i]]++;
+        if (s1.length() > s2.length()) {
+            return false;
         }
-        int start = 0;
-        for (int i = 0; i < c2.length; i++) {
-            while (used[c2[i]] == 0) {
-                used[c2[start]]++;
-                start++;
-            }
-            used[c2[i]]--;
-            if (i - start == c1.length - 1) {
+        int[] s1map = new int[26];
+        int[] s2map = new int[26];
+        for (int i = 0; i < s1.length(); i++) {
+            s1map[s1.charAt(i) - 'a']++;
+            s2map[s2.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < s2.length() - s1.length(); i++) {
+            if (matches(s1map, s2map)) {
                 return true;
             }
+            s2map[s2.charAt(i + s1.length()) - 'a']++;
+            s2map[s2.charAt(i) - 'a']--;
         }
-        return false;
+        return matches(s1map, s2map);
     }
+
+    public static boolean matches(int[] s1map, int[] s2map) {
+        for (int i = 0; i < 26; i++) {
+            if (s1map[i] != s2map[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // 用时最快的代码 https://leetcode-cn.com/submissions/detail/36112689/
 
     public static void main(String[] args) {
         System.out.println(checkInclusion("ab", "eidbaooo"));

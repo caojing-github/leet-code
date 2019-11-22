@@ -6,4 +6,5 @@ bytedance目录为字节跳动板块的算法题
 [UTF-8编码规则](https://www.cnblogs.com/xinruzhishui/p/5763894.html)  
 [PriorityQueue详解](https://www.jianshu.com/p/f1fd9b82cb72)  
 [PriorityQueue源码解析](https://www.jianshu.com/p/df781ec91740)  
+[Java 栈 stack方法总结](https://blog.csdn.net/imbingoer/article/details/85884474)  
 

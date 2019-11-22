@@ -1,7 +1,7 @@
 package bytedance;
 
 /**
- * 字符串相乘 https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1015/  TODO
+ * 字符串相乘 https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1015/
  *
  * @author CaoJing
  * @date 2019/11/10 20:08
@@ -9,32 +9,34 @@ package bytedance;
 public class Solution4 {
 
     /**
-     * 用时最快的代码 https://leetcode-cn.com/submissions/detail/36114308/
+     * 方法二：优化竖式 https://leetcode-cn.com/problems/multiply-strings/solution/you-hua-ban-shu-shi-da-bai-994-by-breezean/
      */
     public static String multiply(String num1, String num2) {
-        if (num1.equals("0") || num2.equals("0")) return "0";
-        int l1 = num1.length(), l2 = num2.length(), l = l1 + l2;
-        char[] ans = new char[l];
-        char[] c1 = num1.toCharArray();
-        char[] c2 = num2.toCharArray();
-        for (int i = l1 - 1; i >= 0; --i) {
-            int c = c1[i] - '0';
-            for (int j = l2 - 1; j >= 0; --j) {
-                ans[i + j + 1] += c * (c2[j] - '0');
+        if (num1.equals("0") || num2.equals("0")) {
+            return "0";
+        }
+        int[] res = new int[num1.length() + num2.length()];
+        for (int i = num1.length() - 1; i >= 0; i--) {
+            int n1 = num1.charAt(i) - '0';
+            for (int j = num2.length() - 1; j >= 0; j--) {
+                int n2 = num2.charAt(j) - '0';
+                int sum = (res[i + j + 1] + n1 * n2);
+                res[i + j + 1] = sum % 10;
+                res[i + j] += sum / 10;
             }
         }
-        for (int i = l - 1; i > 0; --i) {
-            if (ans[i] > 9) {
-                ans[i - 1] += ans[i] / 10;
-                ans[i] %= 10;
+
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < res.length; i++) {
+            if (i == 0 && res[i] == 0) {
+                continue;
             }
+            result.append(res[i]);
         }
-        StringBuilder sb = new StringBuilder();
-        int i = 0;
-        for (; ; ++i) if (ans[i] != 0) break;
-        for (; i < ans.length; ++i) sb.append((char) (ans[i] + '0'));
-        return sb.toString();
+        return result.toString();
     }
+
+    // 用时最快 https://leetcode-cn.com/submissions/detail/36114308/
 
     public static void main(String[] args) {
         System.out.println(multiply("2", "3"));

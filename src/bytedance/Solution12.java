@@ -75,7 +75,7 @@ public class Solution12 {
     }
 
     /**
-     * TODO 之后看 方法一：快速选择 官方题解：https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/shu-zu-zhong-de-di-kge-zui-da-yuan-su-by-leetcode/
+     * 未看 方法一：快速选择 官方题解：https://leetcode-cn.com/problems/kth-largest-element-in-an-array/solution/shu-zu-zhong-de-di-kge-zui-da-yuan-su-by-leetcode/
      */
 
     public static void main(String[] args) {
