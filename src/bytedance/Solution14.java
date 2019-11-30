@@ -1,7 +1,10 @@
 package bytedance;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * 第k个排列 https://leetcode-cn.com/explore/interview/card/bytedance/243/array-and-sorting/1021/ TODO
+ * 第k个排列 https://leetcode-cn.com/explore/interview/card/bytedance/243/array-and-sorting/1021/
  *
  * @author CaoJing
  * @date 2019/11/12 00:25
@@ -9,48 +12,54 @@ package bytedance;
 public class Solution14 {
 
     /**
-     * 用时最快 https://leetcode-cn.com/submissions/detail/36247637/
+     * 剪枝法 https://leetcode-cn.com/problems/permutation-sequence/solution/hui-su-jian-zhi-python-dai-ma-java-dai-ma-by-liwei/
      */
     public String getPermutation(int n, int k) {
-        char[] ret = new char[n];
+        int[] nums = new int[n];
+        boolean[] used = new boolean[n];
         for (int i = 0; i < n; i++) {
-            ret[i] = (char) (i + '1');
+            nums[i] = i + 1;
+            used[i] = false;
         }
-        int[] pows = new int[n + 1];
-        pows[1] = 1;
-        for (int i = 2; i <= n; i++) {
-            pows[i] = pows[i - 1] * i;
-        }
-
-        getPermutation(ret, pows, 0, k - 1);
-        return new String(ret);
-    }
-
-    public void getPermutation(char[] ret, int[] pows, int bg, int k) {
-        if (bg >= ret.length) {
-            return;
-        }
-        int x = ret.length - bg;
-        if (k / pows[x] == 0) {
-            getPermutation(ret, pows, bg + 1, k);
-        } else {
-            int t = k / pows[x];
-            fetch(ret, bg + t, bg);
-            getPermutation(ret, pows, bg + 1, k % pows[x]);
-        }
-    }
-
-    public void fetch(char[] ret, int from, int to) {
-        from -= 1;
-        to -= 1;
-        char c = ret[from];
-        for (int i = from; i > to; i--) {
-            ret[i] = ret[i - 1];
-        }
-        ret[to] = c;
+        List<String> pre = new ArrayList<>();
+        return dfs(nums, used, n, k, 0, pre);
     }
 
     /**
-     * 题解：https://leetcode-cn.com/problems/permutation-sequence/solution/javaliang-chong-jie-fa-ju-ti-si-lu-qing-kan-zhu-sh/
+     * n阶乘
      */
+    private int factorial(int n) {
+        // 这种编码方式包括了 0 的阶乘是 1 这种情况
+        int res = 1;
+        while (n > 0) {
+            res *= n;
+            n -= 1;
+        }
+        return res;
+    }
+
+    private String dfs(int[] nums, boolean[] used, int n, int k, int depth, List<String> pre) {
+        if (depth == n) {
+            StringBuilder sb = new StringBuilder();
+            for (String c : pre) {
+                sb.append(c);
+            }
+            return sb.toString();
+        }
+        int ps = factorial(n - 1 - depth);
+        for (int i = 0; i < n; i++) {
+            if (used[i]) {
+                continue;
+            }
+            if (ps < k) {
+                k -= ps;
+                continue;
+            }
+            pre.add(nums[i] + "");
+            used[i] = true;
+            return dfs(nums, used, n, k, depth + 1, pre);
+        }
+        // 如果参数正确的话，代码不会走到这里
+        throw new RuntimeException("参数错误");
+    }
 }
