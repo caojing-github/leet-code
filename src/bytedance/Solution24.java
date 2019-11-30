@@ -1,7 +1,7 @@
 package bytedance;
 
 /**
- * 合并K个排序链表 https://leetcode-cn.com/explore/interview/card/bytedance/244/linked-list-and-tree/1025/ TODO
+ * 合并K个排序链表 https://leetcode-cn.com/explore/interview/card/bytedance/244/linked-list-and-tree/1025/
  *
  * @author CaoJing
  * @date 2019/11/12 09:31
@@ -19,9 +19,12 @@ public class Solution24 {
 
     /**
      * 用时最快 https://leetcode-cn.com/submissions/detail/36258288/
+     * 思路参看 https://leetcode-cn.com/problems/merge-k-sorted-lists/solution/he-bing-k-ge-pai-xu-lian-biao-by-user9827r/
      */
     public ListNode mergeKLists(ListNode[] lists) {
-        if (lists == null || lists.length == 0) return null;
+        if (lists == null || lists.length == 0) {
+            return null;
+        }
 
         return mergeSolution(lists, 0, lists.length - 1);
     }
@@ -38,9 +41,15 @@ public class Solution24 {
     }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null && l2 == null) return null;
-        if (l1 == null) return l2;
-        if (l2 == null) return l1;
+        if (l1 == null && l2 == null) {
+            return null;
+        }
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
 
         ListNode result = new ListNode(-1);
         ListNode p = result;
