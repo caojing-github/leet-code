@@ -15,36 +15,47 @@ public class Solution32 {
 
     /**
      * 用时最快 https://leetcode-cn.com/submissions/detail/36262367/
-     * 题解 https://www.jiuzhang.com/solution/russian-doll-envelopes
+     * 题解 https://leetcode-cn.com/problems/russian-doll-envelopes/solution/zui-chang-di-zeng-zi-xu-lie-kuo-zhan-dao-er-wei-er/
      */
     public int maxEnvelopes(int[][] envelopes) {
-        if (envelopes == null || envelopes.length == 0
-            || envelopes[0] == null || envelopes[0].length != 2) {
-            return 0;
-        }
+        int n = envelopes.length;
+        // 按宽度升序排列，如果宽度一样，则按高度降序排列
         Arrays.sort(envelopes, new Comparator<int[]>() {
             @Override
-            public int compare(int[] arr1, int[] arr2) {
-                if (arr1[0] == arr2[0]) {
-                    return arr2[1] - arr1[1];
-                } else {
-                    return arr1[0] - arr2[0];
-                }
+            public int compare(int[] a, int[] b) {
+                return a[0] == b[0] ?
+                    b[1] - a[1] : a[0] - b[0];
             }
         });
-        int[] dp = new int[envelopes.length];
-        int len = 0;
-        for (int[] envelope : envelopes) {
-            int index = Arrays.binarySearch(dp, 0, len, envelope[1]);
-            if (index < 0) {
-                index = -index - 1;
-            }
-            dp[index] = envelope[1];
-            if (index == len) {
-                len++;
+        int[] height = new int[n];
+        for (int i = 0; i < n; i++) {
+            height[i] = envelopes[i][1];
+        }
+
+        return lengthOfLIS(height);
+    }
+
+    /**
+     * 最长上升子序列  https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/dong-tai-gui-hua-she-ji-fang-fa-zhi-pai-you-xi-jia/
+     * 下面的方法易于理解，链接中的'二分查找解法'仅供了解
+     */
+    public int lengthOfLIS(int[] nums) {
+        int[] dp = new int[nums.length];
+        Arrays.fill(dp, 1);
+
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
             }
         }
-        return len;
+
+        int res = 0;
+        for (int i = 0; i < dp.length; i++) {
+            res = Math.max(res, dp[i]);
+        }
+        return res;
     }
 
     public static void main(String[] args) {
