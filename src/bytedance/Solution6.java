@@ -1,7 +1,9 @@
 package bytedance;
 
+import java.util.Stack;
+
 /**
- * 简化路径 https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1013/   TODO
+ * 简化路径 https://leetcode-cn.com/explore/interview/card/bytedance/242/string/1013/
  *
  * @author CaoJing
  * @date 2019/11/11 22:50
@@ -10,23 +12,29 @@ public class Solution6 {
 
     /**
      * 用时最快 https://leetcode-cn.com/submissions/detail/36239510/
+     * 题解 https://leetcode-cn.com/problems/simplify-path/solution/java-yi-dong-yi-jie-xiao-lu-gao-by-spirit-9-18/
      */
     public static String simplifyPath(String path) {
-        char[] cs = path.toCharArray();
-        int n = cs.length;
-        int idx = 0;
-        int i = 0;
-        while (i < n) {
-            if (cs[i] != '/' && (cs[i] != '.' || (i < n - 1 && cs[i + 1] != '/' && (cs[i + 1] != '.' || (i < n - 2 && cs[i + 2] != '/'))))) {
-                cs[idx++] = '/';
-                while (i < n && cs[i] != '/') cs[idx++] = cs[i++];
-            } else if (cs[i] == '.' && i > 0 && cs[i - 1] == '.') {
-                while (idx > 0 && cs[--idx] != '/') ;
-                i++;
-            } else i++;
+        String[] s = path.split("/");
+        Stack<String> stack = new Stack<>();
+
+        for (int i = 0; i < s.length; i++) {
+            if (!stack.isEmpty() && s[i].equals("..")) {
+                stack.pop();
+            } else if (!s[i].equals("") && !s[i].equals(".") && !s[i].equals("..")) {
+                stack.push(s[i]);
+            }
         }
-        if (idx == 0) return "/";
-        return new String(cs, 0, idx);
+        if (stack.isEmpty()) {
+            return "/";
+        }
+
+        StringBuffer res = new StringBuffer();
+        for (int i = 0; i < stack.size(); i++) {
+            res.append("/");
+            res.append(stack.get(i));
+        }
+        return res.toString();
     }
 
     public static void main(String[] args) {
