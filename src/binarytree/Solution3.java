@@ -4,12 +4,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 二叉树的前序遍历 https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/2/traverse-a-tree/1/
+ * 二叉树的后序遍历 https://leetcode-cn.com/problems/binary-tree-postorder-traversal/
  *
  * @author CaoJing
- * @date 2019/11/19 13:15
+ * @date 2019/12/02 17:32
  */
-public class Solution1 {
+public class Solution3 {
 
     public static class TreeNode {
         int val;
@@ -22,9 +22,9 @@ public class Solution1 {
     }
 
     /**
-     * 迭代法 https://leetcode-cn.com/problems/binary-tree-preorder-traversal/solution/er-cha-shu-de-qian-xu-bian-li-by-leetcode/
+     * 题解 https://leetcode-cn.com/problems/binary-tree-postorder-traversal/solution/er-cha-shu-de-hou-xu-bian-li-by-leetcode/
      */
-    public static List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode root) {
         LinkedList<TreeNode> stack = new LinkedList<>();
         LinkedList<Integer> output = new LinkedList<>();
         if (root == null) {
@@ -34,12 +34,12 @@ public class Solution1 {
         stack.add(root);
         while (!stack.isEmpty()) {
             TreeNode node = stack.pollLast();
-            output.add(node.val);
-            if (node.right != null) {
-                stack.add(node.right);
-            }
+            output.addFirst(node.val);
             if (node.left != null) {
                 stack.add(node.left);
+            }
+            if (node.right != null) {
+                stack.add(node.right);
             }
         }
         return output;
@@ -50,6 +50,7 @@ public class Solution1 {
         t1.right = new TreeNode(2);
         t1.right.left = new TreeNode(3);
 
-        System.out.println(preorderTraversal(t1));
+        Solution3 solution3 = new Solution3();
+        System.out.println(solution3.postorderTraversal(t1));
     }
 }
