@@ -8,3 +8,6 @@ bytedance目录为字节跳动板块的算法题
 [PriorityQueue源码解析](https://www.jianshu.com/p/df781ec91740)  
 [Java 栈 stack方法总结](https://blog.csdn.net/imbingoer/article/details/85884474)  
 [二叉树相关概念](https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/2/traverse-a-tree/7/)  
+[运用递归解决树的问题](https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/3/solve-problems-recursively/11/)  
+[Queue](https://blog.csdn.net/Fly_as_tadpole/article/details/86536539)  
+ 

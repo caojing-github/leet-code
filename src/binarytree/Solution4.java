@@ -13,7 +13,7 @@ import java.util.Queue;
  */
 public class Solution4 {
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -35,8 +35,8 @@ public class Solution4 {
         while (!queue.isEmpty()) {
             levels.add(new ArrayList<>());
 
-            int level_length = queue.size();
-            for (int i = 0; i < level_length; ++i) {
+            int levelLength = queue.size();
+            for (int i = 0; i < levelLength; ++i) {
                 TreeNode node = queue.remove();
 
                 levels.get(level).add(node.val);
@@ -51,5 +51,16 @@ public class Solution4 {
             level++;
         }
         return levels;
+    }
+
+    public static void main(String[] args) {
+        TreeNode t1 = new TreeNode(3);
+        t1.left = new TreeNode(9);
+        t1.right = new TreeNode(20);
+        t1.right.left = new TreeNode(15);
+        t1.right.right = new TreeNode(7);
+
+        Solution4 solution4 = new Solution4();
+        System.out.println(solution4.levelOrder(t1));
     }
 }
