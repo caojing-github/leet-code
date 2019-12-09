@@ -10,4 +10,7 @@ bytedance目录为字节跳动板块的算法题
 [二叉树相关概念](https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/2/traverse-a-tree/7/)  
 [运用递归解决树的问题](https://leetcode-cn.com/explore/learn/card/data-structure-binary-tree/3/solve-problems-recursively/11/)  
 [Queue](https://blog.csdn.net/Fly_as_tadpole/article/details/86536539)  
+[循环队列](https://leetcode-cn.com/explore/learn/card/queue-stack/216/queue-first-in-first-out-data-structure/864/)  
+[广度优先搜索 - 模板](https://leetcode-cn.com/explore/learn/card/queue-stack/217/queue-and-bfs/870/)  
+
  
