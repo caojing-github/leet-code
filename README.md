@@ -12,5 +12,7 @@ bytedance目录为字节跳动板块的算法题
 [Queue](https://blog.csdn.net/Fly_as_tadpole/article/details/86536539)  
 [循环队列](https://leetcode-cn.com/explore/learn/card/queue-stack/216/queue-first-in-first-out-data-structure/864/)  
 [广度优先搜索 - 模板](https://leetcode-cn.com/explore/learn/card/queue-stack/217/queue-and-bfs/870/)  
+[DFS - 模板 ](https://leetcode-cn.com/explore/learn/card/queue-stack/219/stack-and-dfs/882/)  
+[DFS - 模板 II](https://leetcode-cn.com/explore/learn/card/queue-stack/219/stack-and-dfs/886/)  
 
  

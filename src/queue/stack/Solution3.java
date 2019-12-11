@@ -10,7 +10,8 @@ import java.util.*;
  */
 public class Solution3 {
 
-    /** todo
+    /**
+     * todo
      * https://leetcode-cn.com/problems/open-the-lock/solution/da-kai-zhuan-pan-suo-by-leetcode/
      */
     public int openLock(String[] deadends, String target) {
