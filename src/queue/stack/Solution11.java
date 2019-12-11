@@ -10,6 +10,10 @@ import java.util.Stack;
  */
 public class Solution11 {
 
+    /**
+     * 效率不是很高，但解题思路很清晰
+     * https://leetcode-cn.com/problems/implement-queue-using-stacks/solution/java-yi-dong-yi-jie-xiao-lu-gao-by-spirit-9-45/
+     */
     Stack<Integer> stackPush;
     Stack<Integer> stackPop;
 
