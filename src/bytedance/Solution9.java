@@ -9,7 +9,6 @@ package bytedance;
 public class Solution9 {
 
     /**
-     * 用时最快 https://leetcode-cn.com/submissions/detail/36241633/
      * 解题思路 https://leetcode-cn.com/problems/max-area-of-island/solution/dao-yu-de-zui-da-mian-ji-by-leetcode/
      */
     public int maxAreaOfIsland(int[][] grid) {

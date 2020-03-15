@@ -25,7 +25,6 @@ public class Solution4 {
                 res[i + j] += sum / 10;
             }
         }
-
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < res.length; i++) {
             if (i == 0 && res[i] == 0) {
@@ -34,11 +33,5 @@ public class Solution4 {
             result.append(res[i]);
         }
         return result.toString();
-    }
-
-    // 用时最快 https://leetcode-cn.com/submissions/detail/36114308/
-
-    public static void main(String[] args) {
-        System.out.println(multiply("2", "3"));
     }
 }

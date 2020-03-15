@@ -30,9 +30,4 @@ public class Solution2 {
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        String[] strs = new String[]{"flower", "flow", "flight"};
-        System.out.println(longestCommonPrefix(strs));
-    }
 }
