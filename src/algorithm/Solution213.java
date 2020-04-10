@@ -28,6 +28,9 @@ public class Solution213 {
         );
     }
 
+    /**
+     * 相当于nums[begin]~nums[end]元素构成的数组的打家劫舍 https://leetcode-cn.com/problems/house-robber/ 问题
+     */
     private int rob(int[] nums, int begin, int end) {
         int[] dp = new int[end - begin + 2];
         dp[0] = 0;
