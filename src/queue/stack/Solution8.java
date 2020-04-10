@@ -15,49 +15,46 @@ public class Solution8 {
         if (grid == null || grid.length == 0) {
             return 0;
         }
-
         // 高度
-        int nr = grid.length;
+        int H = grid.length;
         // 宽度
-        int nc = grid[0].length;
+        int W = grid[0].length;
         int numIslands = 0;
         // 按高度遍历
-        for (int r = 0; r < nr; ++r) {
+        for (int h = 0; h < H; ++h) {
             // 按宽度遍历
-            for (int c = 0; c < nc; ++c) {
-                if (grid[r][c] == '1') {
+            for (int w = 0; w < W; ++w) {
+                if (grid[h][w] == '1') {
                     ++numIslands;
-                    dfs(grid, r, c);
+                    dfs(grid, h, w);
                 }
             }
         }
-
         return numIslands;
     }
 
     /**
      * @param grid 二维网格
-     * @param r    高度
-     * @param c    宽度
+     * @param h    高度
+     * @param w    宽度
      */
-    public void dfs(char[][] grid, int r, int c) {
+    public void dfs(char[][] grid, int h, int w) {
         // 高度
-        int nr = grid.length;
+        int H = grid.length;
         // 宽度
-        int nc = grid[0].length;
+        int W = grid[0].length;
 
-        if (r < 0 || c < 0 || r >= nr || c >= nc || grid[r][c] == '0') {
+        if (h < 0 || w < 0 || h >= H || w >= W || grid[h][w] == '0') {
             return;
         }
-
-        grid[r][c] = '0';
+        grid[h][w] = '0';
         // 向上搜索
-        dfs(grid, r - 1, c);
+        dfs(grid, h - 1, w);
         // 向下搜索
-        dfs(grid, r + 1, c);
+        dfs(grid, h + 1, w);
         // 向左搜索
-        dfs(grid, r, c - 1);
+        dfs(grid, h, w - 1);
         // 向右搜索
-        dfs(grid, r, c + 1);
+        dfs(grid, h, w + 1);
     }
 }

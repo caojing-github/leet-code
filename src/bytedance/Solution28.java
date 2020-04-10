@@ -19,26 +19,27 @@ public class Solution28 {
      * 3. 将多段点的最大差值相加，得到最的和
      */
     public static int maxProfit(int[] prices) {
-        if (prices.length < 2) {
+        // 第一天不可能卖出，从第二天开始看
+        if (prices.length <= 1) {
             return 0;
         }
         int maxProfit = 0;
         // 峰点
-        int peak;
+        int top;
         // 谷点
-        int valley;
+        int low;
         int i = 0;
         while (i < prices.length - 1) {
             while (i < prices.length - 1 && prices[i] >= prices[i + 1]) {
                 i++;
             }
-            valley = prices[i];
+            low = prices[i];
             while (i < prices.length - 1 && prices[i + 1] >= prices[i]) {
                 i++;
             }
-            peak = prices[i];
+            top = prices[i];
             // 求得峰点
-            maxProfit += peak - valley;
+            maxProfit += top - low;
         }
         return maxProfit;
     }

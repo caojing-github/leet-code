@@ -95,7 +95,6 @@ public class MinHeap {
     public void newRoot(int root) {
         data[0] = root;
         change(0);
-
     }
 
     /**

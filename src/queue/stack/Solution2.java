@@ -16,55 +16,54 @@ public class Solution2 {
             return 0;
         }
         // 高度
-        int nr = grid.length;
+        int H = grid.length;
         // 宽度
-        int nc = grid[0].length;
+        int W = grid[0].length;
         int numIslands = 0;
 
         // 按高度遍历
-        for (int r = 0; r < nr; ++r) {
+        for (int h = 0; h < H; ++h) {
             // 按宽度遍历
-            for (int c = 0; c < nc; ++c) {
-                if (grid[r][c] == '1') {
+            for (int w = 0; w < W; ++w) {
+                if (grid[h][w] == '1') {
                     ++numIslands;
-                    grid[r][c] = '0';
+                    grid[h][w] = '0';
 
                     Queue<Integer> neighbors = new LinkedList<>();
                     // 可以看做函数 或者 辗转相除法表示两个数（结合后面的就能很快看明白）
-                    neighbors.add(r * nc + c);
+                    neighbors.add(h * W + w);
 
                     while (!neighbors.isEmpty()) {
                         int id = neighbors.remove();
                         // 高度
-                        int row = id / nc;
+                        int row = id / W;
                         // 宽度
-                        int col = id % nc;
+                        int col = id % W;
 
                         // 向上搜索
                         if (row - 1 >= 0 && grid[row - 1][col] == '1') {
-                            neighbors.add((row - 1) * nc + col);
+                            neighbors.add((row - 1) * W + col);
                             grid[row - 1][col] = '0';
                         }
                         // 向下搜索
-                        if (row + 1 < nr && grid[row + 1][col] == '1') {
-                            neighbors.add((row + 1) * nc + col);
+                        if (row + 1 < H && grid[row + 1][col] == '1') {
+                            neighbors.add((row + 1) * W + col);
                             grid[row + 1][col] = '0';
                         }
                         // 向左搜索
                         if (col - 1 >= 0 && grid[row][col - 1] == '1') {
-                            neighbors.add(row * nc + col - 1);
+                            neighbors.add(row * W + col - 1);
                             grid[row][col - 1] = '0';
                         }
                         // 向右搜索
-                        if (col + 1 < nc && grid[row][col + 1] == '1') {
-                            neighbors.add(row * nc + col + 1);
+                        if (col + 1 < W && grid[row][col + 1] == '1') {
+                            neighbors.add(row * W + col + 1);
                             grid[row][col + 1] = '0';
                         }
                     }
                 }
             }
         }
-
         return numIslands;
     }
 }
