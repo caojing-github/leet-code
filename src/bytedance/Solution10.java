@@ -1,8 +1,6 @@
 package bytedance;
 
 /**
- * **中等** 归纳类型
- * <p>
  * 搜索旋转排序数组 https://leetcode-cn.com/explore/interview/card/bytedance/243/array-and-sorting/1017/
  *
  * @author CaoJing
@@ -11,9 +9,9 @@ package bytedance;
 public class Solution10 {
 
     /**
-     * 用时最快 https://leetcode-cn.com/submissions/detail/36242392/
-     * <p>
      * 思路可以参考：https://www.cnblogs.com/ariel-dreamland/p/9138064.html
+     * 简而言之：总有一半区间是递增的
+     * https://leetcode-cn.com/problems/search-in-rotated-sorted-array/solution/er-fen-fa-python-dai-ma-java-dai-ma-by-liweiwei141/
      */
     public static int search(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
