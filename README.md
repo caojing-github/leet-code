@@ -15,4 +15,15 @@ bytedance目录为字节跳动板块的算法题
 [DFS - 模板 ](https://leetcode-cn.com/explore/learn/card/queue-stack/219/stack-and-dfs/882/)  
 [DFS - 模板 II](https://leetcode-cn.com/explore/learn/card/queue-stack/219/stack-and-dfs/886/)  
 
+二维数组
+```java
+        int[][] m = {
+            {1, 1, 0},
+            {1, 1, 0},
+            {0, 0, 1}
+        };
+```
+
+标准ASCII码(美国信息交换标准代码)范围0~127，扩展ASCII码128~255
+
  

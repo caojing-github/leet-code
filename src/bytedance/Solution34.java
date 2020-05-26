@@ -13,9 +13,6 @@ import java.util.Map;
  */
 public class Solution34 {
 
-    /**
-     * 用时最快 https://leetcode-cn.com/submissions/detail/36263834/
-     */
     class LRUCacheMap<K, V> extends LinkedHashMap<K, V> {
 
         // 缓存容量
