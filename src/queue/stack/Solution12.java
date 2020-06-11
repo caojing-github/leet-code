@@ -12,7 +12,6 @@ import java.util.List;
 public class Solution12 {
 
     /**
-     * https://leetcode-cn.com/submissions/detail/39637618/
      * 其他方法 https://leetcode-cn.com/problems/implement-stack-using-queues/solution/yong-dui-lie-shi-xian-zhan-by-leetcode/
      */
     private static List list;
